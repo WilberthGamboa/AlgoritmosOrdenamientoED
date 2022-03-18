@@ -1,12 +1,13 @@
-package com.mycompany.radixsort;
+package Algorithms;
 
 import java.io.IOException;
 import java.util.LinkedList;
 
+import Entity.DatosMovie;
+
 
 public class QuickSortAlfabeto {
 
-    
 
     public  LinkedList<DatosMovie> quickSort(LinkedList <DatosMovie> strArr, int p, int r)
     {
@@ -29,10 +30,10 @@ public class QuickSortAlfabeto {
         while (true) 
         {
             i++;
-            while ( i< r && strArr.get(i).getMovie_title().compareTo(x) < 0)
+            while ( i< r && strArr.get(i).getMovie_title().compareTo(x) > 0)
                 i++;
             j--;
-            while (j>p && strArr.get(j).getMovie_title().compareTo(x) > 0)
+            while (j>p && strArr.get(j).getMovie_title().compareTo(x) < 0)
                 j--;
 
             if (i < j)
@@ -57,20 +58,6 @@ public class QuickSortAlfabeto {
        for(int i=0; i < strArr.size(); i++){
            System.out.println(strArr.get(i).getMovie_title());
            System.out.println();
-       }
-        
-
-       
-    }
-    public static void main(String[] args) throws IOException {
-        /*
-        System.out.println("Quick Sorting...");
-       String []transformStr ={"Wilberth","Jaboc","ariel","Cambranes"};
-        String[] quickStr = quickSort(transformStr,0,transformStr.length-1);
-      
-        print_output(quickStr);
-         
-        System.exit(0);
-        */
+       }   
     }
 }
