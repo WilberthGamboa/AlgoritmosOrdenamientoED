@@ -1,20 +1,18 @@
 package com.mycompany.radixsort;
 
-import java.util.LinkedList;
-
-class RadixSortClase {
+ class RadixSortClase {
     int BASE = 9;
     //Función que devuelve el número máximo
 
     //Pasa en la funcion el arreglo de números y el tamaño del arreglo
-    public int getMax(LinkedList<DatosMovie> arr, int n){
+    public int getMax(int[] arr, int n){
         //Estable que el número más grande es el inicial
-        int max = arr.get(0).getDuration();
+        int max = arr[0];
         //recorre el arreglo desde el primero número 
         for(int i = 1; i < n; i++){
             //Si el número actual es mayor al máximo se guarda como máximo
-            if(arr.get(i).getDuration() > max){
-                max = arr.get(i).getDuration();
+            if(arr[i] > max){
+                max = arr[i];
             }
         }
         //Devuelve el máximo
@@ -22,7 +20,7 @@ class RadixSortClase {
     }
 
 //Pasamos el arreglo de enteros, y el tamaño de la función
-    public void radixsort(LinkedList<DatosMovie> arr, int n){
+    public void radixsort(int[] arr, int n){
         //Obtenemos el número máximo
         int max = getMax(arr, n);
         //Esto nos va diviendo el número entre 1,10,100, así hasta llegar al número más significativo
@@ -32,8 +30,8 @@ class RadixSortClase {
         }
     }
 //Introducir el arreglo de enteros, pasar el tamaño máximo del arreglo y el iterador 
-    public void countsort(LinkedList<DatosMovie> arr, int n, int d){
-        //Arreglo de tamaño máximo entero :v SI PAPU XDDXSX DXDXDXDXDXDXDXD
+    public void countsort(int[] arr, int n, int d){
+        //Arreglo de tamaño máximo entero :v SI PAPU XDDXSXDXDXDXDXDXDXDXD
         int[] output = new int[n];
         //ARREGLO CON EL NÚMERO DE BASE
         int[] count = new int[BASE+1];
@@ -59,7 +57,7 @@ class RadixSortClase {
 
         */
             
-            count[arr.get(i).getDuration()/d % 10] += 1;
+            count[arr[i]/d % 10] += 1;
 
            /*
             System.out.println("Valor arreglo: "+ arr[i] );
@@ -76,13 +74,12 @@ class RadixSortClase {
         }
 
         for(int i = n-1; i >= 0; i--){
-            output[count[arr.get(i).getDuration()/d % 10]-1] = arr.get(i).getDuration();
-            count[arr.get(i).getDuration()/d % 10] -= 1;
+            output[count[arr[i]/d % 10]-1] = arr[i];
+            count[arr[i]/d % 10] -= 1;
         }
 
         for(int i = 0; i < n; i++){
-            arr.get(i).setDuration(output[i]);
-            
+            arr[i] = output[i];
         }
     }
     
