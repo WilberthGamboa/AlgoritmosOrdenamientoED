@@ -117,6 +117,7 @@ public class ManejoCsv {
 		ManejoCsv hola = new ManejoCsv();
 		RadixSortClase ob = new RadixSortClase();
 		ReverseQuickSort quickSort = new ReverseQuickSort();
+		QuickSortAlfabeto alfabeto = new QuickSortAlfabeto();
 		 LinkedList<DatosMovie> listaPeliculas = hola.getListaPeliculas();
 
 		try {
@@ -130,6 +131,10 @@ public class ManejoCsv {
 			quickSort.quickSort(listaPeliculas);
 			System.out.println("Descendente");
 			hola.imprimirLista();
+			System.out.println("Alfabeto Ascendente");
+
+			LinkedList<DatosMovie> quickStr=alfabeto.quickSort(listaPeliculas,0,listaPeliculas.size()-1);
+			alfabeto.print_output(quickStr);
 			
 		} catch (NumberFormatException e) {
             // TODO Auto-generated catch block
