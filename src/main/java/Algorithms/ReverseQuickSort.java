@@ -6,16 +6,7 @@ import java.util.LinkedList;
 
 import Entity.DatosMovie;
 
-/**
- * Problem:
- * Reverse Quick Sort
- * ;
- * Algorithm:
- * - Just Change comparision logic for Quick Sort
- *
- * @author hrishikesh.mishra
- * @link http://hrishikeshmishra.com/reverse-quick-sort/
- */
+
 public class ReverseQuickSort {
 
     public  void quickSort(LinkedList <DatosMovie> array) {
@@ -53,17 +44,3 @@ public class ReverseQuickSort {
        array.get(j).setDuration(temp);
     }
 }
-/*
-
-class ReverseQuickSortTest {
-    public static void main(String[] args) {
-        int[] array = {2, 8, 7, 1, 3, 5, 6, 4};
-        System.out.println("Before Array: " + Arrays.toString(array));
-       // ReverseQuickSort.quickSort(array);
-        System.out.println("After Array: " + Arrays.toString(array));
-
-    }
-
-   
-}
- */
