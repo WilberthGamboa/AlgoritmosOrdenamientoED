@@ -117,9 +117,9 @@ public class ManejoCsv {
 			hola.readDataLineByLine();
 		
 
-			// int n = listaPeliculas.size();
+			 int n = listaPeliculas.size();
 
-			// ob.radixsort(listaPeliculas, n);
+			ob.radixsort(listaPeliculas, n);
 
 			// System.out.println("Ascendente");
 			// hola.imprimirLista();
