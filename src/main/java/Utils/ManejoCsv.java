@@ -2,13 +2,16 @@ package Utils;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
+
 import java.util.List;
+import java.util.Scanner;
 
 import com.opencsv.CSVWriter;
 
 import Algorithms.InsertionSort;
-import Algorithms.QuickSortAlfabeto;
+
+import Algorithms.QuickSortAlfabetoD;
+import Algorithms.QuickSortAlfabetoA;
 import Algorithms.RadixSortClase;
 import Algorithms.ReverseQuickSort;
 import Entity.DatosMovie;
@@ -72,7 +75,7 @@ public class ManejoCsv {
 
 			// create a List which contains String array
 			List<String[]> data = new ArrayList<String[]>();
-
+		//	data.add(new String[]{"Movie ID","Movie title","Duration","Color","Lenguage","Country"});
 			for (int i = 0; i < listaPeliculas.size(); i++) {
 				data.add(new String[] { String.valueOf(listaPeliculas.get(i).getMovie_id()),
 						listaPeliculas.get(i).getMovie_title(), String.valueOf(listaPeliculas.get(i).getDuration()),
@@ -106,21 +109,20 @@ public class ManejoCsv {
 	}
 
 	public void iniciarPrograma() {
-		ManejoCsv hola = new ManejoCsv();
-		RadixSortClase ob = new RadixSortClase();
+		ManejoCsv manejoCsv = new ManejoCsv();
+		RadixSortClase radixSortClase = new RadixSortClase();
 		ReverseQuickSort quickSort = new ReverseQuickSort();
-		QuickSortAlfabeto alfabeto = new QuickSortAlfabeto();
-		ArrayList<DatosMovie> listaPeliculas = hola.getListaPeliculas();
+		QuickSortAlfabetoD alfabetoA = new QuickSortAlfabetoD();
+		QuickSortAlfabetoA alfabetoD = new QuickSortAlfabetoA();
+		
 		InsertionSort insertionSort = new InsertionSort();
+		ArrayList<DatosMovie> listaPeliculas = manejoCsv.getListaPeliculas();
 
 		try {
-			hola.readDataLineByLine();
+			manejoCsv.readDataLineByLine();
 		
 
-			 int n = listaPeliculas.size();
-
-			ob.radixsort(listaPeliculas, n);
-
+	
 			// System.out.println("Ascendente");
 			// hola.imprimirLista();
 			
@@ -140,33 +142,89 @@ public class ManejoCsv {
 			e.printStackTrace();
 		}
 
+		System.out.println("0- ORDENAR ASCENDENTE POR DURACION PELICULA");
+		System.out.println("1- ORDENAR DESCENDENTE POR DURACION PELICULA");
+		System.out.println("2- ORDENAR ASCENDENTE POR NOMBRE PELICULA");
+		System.out.println("3- ORDENAR DESCENDENTE POR NOMBRE PELICULA");
+		System.out.println();
+		System.out.println("Digite la opción");
+		Scanner sc = new Scanner(System.in);
+		int optionA = sc.nextInt();
+
+	
+
+		switch (optionA) {
+		
+			case 0:
+			System.out.println("0- ORDENAR CON RADIX SORT");
+			System.out.println("1- ORDENAR CON INSERT SORT");
+			optionA = sc.nextInt();
+			System.out.println("Digite la opción");
+			if (optionA==0) {
+				int n = listaPeliculas.size();
+				radixSortClase.radixsort(listaPeliculas, n);
+
+				
+			} else {
+				insertionSort.ordenar(listaPeliculas);
+			}
+			
+				
+				break;
+			case 1:
+			System.out.println("0- ORDENAR CON QUICK SORT");
+			System.out.println("1- ORDENAR CON INSERT SORT");
+			optionA = sc.nextInt();
+
+
+			if (optionA==0) {
+				quickSort.quickSort(listaPeliculas);
+
+				
+			} else {
+				insertionSort.ordenarDescendiente(listaPeliculas);
+			}
+				
+				break;
+
+			case 2:
+			alfabetoA.quickSort(listaPeliculas, 0, listaPeliculas.size() - 1);
+				break;
+
+			case 3:
+		
+			alfabetoD.quickSort(listaPeliculas, 0, listaPeliculas.size() - 1);
+				break;
+		
+			default:
+
+				break;
+		}
+		
+/*
+		int n = listaPeliculas.size();
+
+		radixSortClase.radixsort(listaPeliculas, n);
+
+
 		System.out.println("Ascendete");
 		//int n = listaPeliculas.size();
 
 		 //ob.radixsort(listaPeliculas, n);
 			System.out.println("Descendente");
 			quickSort.quickSort(listaPeliculas);
-			 alfabeto.quickSort(listaPeliculas, 0,  listaPeliculas.size() - 1,0);
+		//	 alfabeto.quickSort(listaPeliculas, 0,  listaPeliculas.size() - 1,0);
 
 			 insertionSort.ordenar(listaPeliculas);
 		 //alfabeto.quickSort(listaPeliculas, 0,  listaPeliculas.size() - 1,1);
 
-			
+			*/
 
 
 
 
-		//	hola.imprimirLista();
 	}
 
-	public void imprimirLista() {
-
-		for (int i = 0; i < listaPeliculas.size(); i++) {
-
-		//	System.out.println(listaPeliculas.get(i).getDuration());
-
-		}
-
-	}
+	
 
 }

@@ -19,8 +19,8 @@ public class ReverseQuickSort {
         long endTime = System.nanoTime();
         Long processTime = (endTime-startTime);
         ManejoCsv listaFinal = new  ManejoCsv();
-        listaFinal.generarCsv(array,"Descendente.csv");
-        listaFinal.generarTxt("QuickSortEstadisticas.txt",processTime,numeroComparaciones,numeroIntercambios);
+        listaFinal.generarCsv(array,"QuickSortD.csv");
+        listaFinal.generarTxt("QuickSortD.txt",processTime,numeroComparaciones,numeroIntercambios);
         
     }
 

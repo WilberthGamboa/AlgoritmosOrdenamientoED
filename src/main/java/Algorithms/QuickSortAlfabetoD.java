@@ -1,45 +1,45 @@
 package Algorithms;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
+
 
 import Entity.DatosMovie;
 import Utils.ManejoCsv;
 
 
-public class QuickSortAlfabeto {
+public class QuickSortAlfabetoD {
     private long startTime;
     private int numeroComparaciones;
     private int numeroIntercambios;
 
-    public  ArrayList<DatosMovie> quickSort(ArrayList <DatosMovie> strArr, int p, int r,int orden)
+    public  ArrayList<DatosMovie> quickSort(ArrayList <DatosMovie> strArr, int p, int r)
     {
-        long startTime = System.nanoTime();
+         startTime = System.nanoTime();
         numeroComparaciones++;
         if(p<r)
         {
-            int q=partition(strArr,p,r,orden);
-            quickSort(strArr,p,q, orden);
-            quickSort(strArr,q+1,r,orden);
+            int q=partition(strArr,p,r);
+            quickSort(strArr,p,q );
+            quickSort(strArr,q+1,r);
         }
 
         long endTime = System.nanoTime();
         Long processTime = (endTime-startTime);
         ManejoCsv listaFinal = new  ManejoCsv();
-        listaFinal.generarCsv(strArr,"Alfabeto.csv");
-        listaFinal.generarTxt("QuickSortEstadisticasAlfabeto.txt",processTime,numeroComparaciones,numeroIntercambios);
+        listaFinal.generarCsv(strArr,"QuickSortAlfabetoD.csv");
+        listaFinal.generarTxt("QuickSortAlfabetoD.txt",processTime,numeroComparaciones,numeroIntercambios);
         
         return strArr;
     }
     
-    private  int partition(ArrayList <DatosMovie> strArr, int p, int r,int orden) {
+    private  int partition(ArrayList <DatosMovie> strArr, int p, int r) {
 
         String x = strArr.get(p).getMovie_title();
         int i = p-1 ;
         int j = r+1 ;
         
-        if(orden==0){
+       
             numeroComparaciones++;
             while (true) 
         {
@@ -57,24 +57,8 @@ public class QuickSortAlfabeto {
             else
                 return j;
         }
-        }
-        numeroComparaciones++;
-        while (true) 
-        {
-            i++;
-            numeroComparaciones++;
-            while ( i< r && strArr.get(i).getMovie_title().compareTo(x) > 0)
-                i++;
-            j--;
-            numeroComparaciones++;
-            while (j>p && strArr.get(j).getMovie_title().compareTo(x) < 0)
-                j--;
-                numeroComparaciones++;
-            if (i < j)
-                swap(strArr, i, j);
-            else
-                return j;
-        }
+        
+        
     }
 
     private  void swap(ArrayList <DatosMovie> strArr, int i, int j) 
@@ -89,13 +73,5 @@ public class QuickSortAlfabeto {
       
     }
     
-    public  void print_output(LinkedList <DatosMovie> strArr) throws IOException
-    {
-     
-       
-       for(int i=0; i < strArr.size(); i++){
-           System.out.println(strArr.get(i).getMovie_title());
-           System.out.println();
-       }   
-    }
+  
 }

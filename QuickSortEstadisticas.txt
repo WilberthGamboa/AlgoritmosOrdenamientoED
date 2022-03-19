@@ -1,3 +1,0 @@
-1) Tiempo de ejecución del algoritmo: 4807500
-2)Numero de comparaciones: 3992
-3)Numero de intercambios: 3810

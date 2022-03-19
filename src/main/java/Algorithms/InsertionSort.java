@@ -29,8 +29,8 @@ public class InsertionSort {
         long endTime = System.nanoTime();
         Long processTime = (endTime-startTime);
         ManejoCsv listaFinal = new  ManejoCsv();
-        listaFinal.generarCsv(arreglo,"InsertionSort.csv");
-        listaFinal.generarTxt("InsertionSort.txt",processTime,numeroComparaciones,numeroIntercambios);
+        listaFinal.generarCsv(arreglo,"InsertionSortA.csv");
+        listaFinal.generarTxt("InsertionSortA.txt",processTime,numeroComparaciones,numeroIntercambios);
     }
 
     public void ordenarDescendiente(ArrayList<DatosMovie> arr ){
@@ -57,8 +57,8 @@ public class InsertionSort {
         long endTime = System.nanoTime();
         Long processTime = (endTime-startTime);
         ManejoCsv listaFinal = new  ManejoCsv();
-        listaFinal.generarCsv(arr,"InsertionSort.csv");
-        listaFinal.generarTxt("InsertionSort.txt",processTime,numeroComparaciones,numeroIntercambios);
+        listaFinal.generarCsv(arr,"InsertionSortD.csv");
+        listaFinal.generarTxt("InsertionSortD.txt",processTime,numeroComparaciones,numeroIntercambios);
     }
 
 }
