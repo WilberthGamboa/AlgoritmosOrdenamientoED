@@ -31,7 +31,7 @@ public class ManejoCsv {
 			String linea = "";
 
 			int i = 0;
-			br.readLine(); // saltar los nombres de columna
+			br.readLine();
 			while ((linea = br.readLine()) != null && i < 100) {
 				String[] datos = linea.split(",");
 
@@ -41,17 +41,13 @@ public class ManejoCsv {
 					}
 				}
 
-				// System.out.println(datos[0]);
-				// System.out.println(datos[1]);
-				// Movie movie = new Movie(datos[1], Double.parseDouble(datos[7]));
 				DatosMovie pelicula = new DatosMovie(Integer.parseInt(datos[0]), datos[1], Integer.parseInt(datos[2]),
 						datos[3], datos[4], datos[5]);
 				this.listaPeliculas.add(pelicula);
-				// this.moviesLL.insertCrescent(movie);
-				// usr.imprimirInfo(); //Eliminar después
+				
 				i++;
 			}
-			// System.out.println(moviesLL.getSize());
+			
 		}
 
 	}

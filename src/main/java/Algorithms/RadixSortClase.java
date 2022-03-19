@@ -56,7 +56,7 @@ public class RadixSortClase {
     }
 //Introducir el arreglo de enteros, pasar el tamaño máximo del arreglo y el iterador 
     public void countsort(ArrayList<DatosMovie> arr, int n, int d){
-        //Arreglo de tamaño máximo entero :v SI PAPU XDDXSXDXDXDXDXDXDXDXD
+
       DatosMovie output[] = new DatosMovie[n];
     
         //ARREGLO CON EL NÚMERO DE BASE
