@@ -51,7 +51,8 @@ public class RadixSortClase {
 //Introducir el arreglo de enteros, pasar el tamaño máximo del arreglo y el iterador 
     public void countsort(ArrayList<DatosMovie> arr, int n, int d){
         //Arreglo de tamaño máximo entero :v SI PAPU XDDXSX DXDXDXDXDXDXDXD
-        ArrayList<DatosMovie> output = new ArrayList<DatosMovie>(n);
+        ArrayList<DatosMovie> output = new ArrayList<DatosMovie>();
+        output = arr;
      
         //ARREGLO CON EL NÚMERO DE BASE
         int[] count = new int[BASE+1];
@@ -96,19 +97,22 @@ public class RadixSortClase {
             count[i] += count[i-1];
         }
         numeroComparaciones++;
-        for(int i = n-1; i >= 0; i--){
+        for(int i = n-1; i >= 1; i--){
+            System.out.println(i);
             numeroIntercambios++;
             //count index output
-            System.out.println((count[arr.get(i).getDuration()/d % 10])-1);
-            output.add((count[(arr.get(i).getDuration())/d % 10]-1), arr.get(i));
+        //    System.out.println(count[arr.get(i).getDuration()/d % 10]-1);
+            
+            output.set((count[arr.get(i).getDuration()/d % 10]-1), arr.get(i));
            
             
             numeroIntercambios++;
-            count[(arr.get(i).getDuration())/d % 10] -= 1;
+            count[(arr.get(i).getDuration()/d) % 10] -= 1;
+          
         }
         numeroComparaciones++;
         for(int i = 0; i < n; i++){
-            arr.add(i, output.get(i));
+            arr.set(i, output.get(i));
            
             
         }

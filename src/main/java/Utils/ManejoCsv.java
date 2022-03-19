@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.opencsv.CSVWriter;
 
+import Algorithms.InsertionSort;
 import Algorithms.QuickSortAlfabeto;
 import Algorithms.RadixSortClase;
 import Algorithms.ReverseQuickSort;
@@ -110,6 +111,7 @@ public class ManejoCsv {
 		ReverseQuickSort quickSort = new ReverseQuickSort();
 		QuickSortAlfabeto alfabeto = new QuickSortAlfabeto();
 		ArrayList<DatosMovie> listaPeliculas = hola.getListaPeliculas();
+		InsertionSort insertionSort = new InsertionSort();
 
 		try {
 			hola.readDataLineByLine();
@@ -139,25 +141,29 @@ public class ManejoCsv {
 		}
 
 		System.out.println("Ascendete");
-		int n = listaPeliculas.size();
+		//int n = listaPeliculas.size();
 
-		 ob.radixsort(listaPeliculas, n);
+		 //ob.radixsort(listaPeliculas, n);
 			System.out.println("Descendente");
 			quickSort.quickSort(listaPeliculas);
+			 alfabeto.quickSort(listaPeliculas, 0,  listaPeliculas.size() - 1,0);
+
+			 insertionSort.ordenar(listaPeliculas);
+		 //alfabeto.quickSort(listaPeliculas, 0,  listaPeliculas.size() - 1,1);
 
 			
 
 
 
 
-			hola.imprimirLista();
+		//	hola.imprimirLista();
 	}
 
 	public void imprimirLista() {
 
 		for (int i = 0; i < listaPeliculas.size(); i++) {
 
-			System.out.println(listaPeliculas.get(i).getDuration());
+		//	System.out.println(listaPeliculas.get(i).getDuration());
 
 		}
 
