@@ -19,7 +19,7 @@ public class ReverseQuickSort {
         long endTime = System.nanoTime();
         Long processTime = (endTime-startTime);
         ManejoCsv listaFinal = new  ManejoCsv();
-        listaFinal.generarCsv(array,"Descendente");
+        listaFinal.generarCsv(array,"Descendente.csv");
         listaFinal.generarTxt("QuickSortEstadisticas.txt",processTime,numeroComparaciones,numeroIntercambios);
         
     }
@@ -52,12 +52,16 @@ public class ReverseQuickSort {
     }
 
     private  void swap(ArrayList <DatosMovie> array, int i, int j) {
-        
-        int temp = array.get(i).getDuration();
+        DatosMovie temporal = new DatosMovie();
+        temporal= array.get(i);
         numeroIntercambios++;
-       array.get(i).setDuration(array.get(j).getDuration());
-       numeroIntercambios++;
-       array.get(j).setDuration(temp);
+        array.set(i, array.get(j));
+        numeroIntercambios++;
+        array.set(j, temporal);
+     
+
+
+
 
 
     

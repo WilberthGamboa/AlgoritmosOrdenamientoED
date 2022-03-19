@@ -96,7 +96,7 @@ public class ManejoCsv {
             PrintWriter writer = new PrintWriter(nameFile, "UTF-8");
             writer.println("1) Tiempo de ejecución del algoritmo: "+ processTime);
             writer.println("2)Numero de comparaciones: "+numeroComparaciones);
-			writer.println("3)Numero de comparaciones: "+numeroIntercambios);
+			writer.println("3)Numero de intercambios: "+numeroIntercambios);
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,7 +113,7 @@ public class ManejoCsv {
 
 		try {
 			hola.readDataLineByLine();
-			hola.imprimirLista();
+		
 
 			// int n = listaPeliculas.size();
 
@@ -121,10 +121,7 @@ public class ManejoCsv {
 
 			// System.out.println("Ascendente");
 			// hola.imprimirLista();
-			System.out.println("Descendente");
-			quickSort.quickSort(listaPeliculas);
-
-			hola.imprimirLista();
+			
 			/*
 			 * System.out.println("Alfabeto Ascendente");
 			 * 
@@ -140,6 +137,20 @@ public class ManejoCsv {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+
+			System.out.println("Descendente");
+			quickSort.quickSort(listaPeliculas);
+
+			System.out.println("Ascendete");
+			int n = listaPeliculas.size();
+
+			 ob.radixsort(listaPeliculas, n);
+
+
+
+
+			hola.imprimirLista();
 	}
 
 	public void imprimirLista() {
