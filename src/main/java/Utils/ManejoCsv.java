@@ -138,14 +138,14 @@ public class ManejoCsv {
 			e.printStackTrace();
 		}
 
+		System.out.println("Ascendete");
+		int n = listaPeliculas.size();
 
+		 ob.radixsort(listaPeliculas, n);
 			System.out.println("Descendente");
 			quickSort.quickSort(listaPeliculas);
 
-			System.out.println("Ascendete");
-			int n = listaPeliculas.size();
-
-			 ob.radixsort(listaPeliculas, n);
+			
 
 
 
